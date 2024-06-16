@@ -1,0 +1,161 @@
+.bg-primary {
+    background-color: #E4C59E;
+}
+
+.bg-secondary {
+    background-color: #AF8260;
+}
+
+.bg-tertiary {
+    background-color: #803D3B;
+}
+
+.bg-quaternary {
+    background-color: #322C2B;
+}
+
+.bg-back {
+    background-color: #AF8260;
+}
+
+.bg-next {
+    background-color: #803D3B;
+}
+
+.text-primary {
+    color: #E4C59E;
+}
+
+.text-secondary {
+    color: #AF8260;
+}
+
+.text-tertiary {
+    color: #803D3B;
+}
+
+.text-quaternary {
+    color: #322C2B;
+}
+
+/* Transisi animasi */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.happy-emoticon::before {
+    content: '😄';
+    font-size: 3rem;
+    animation: happyAnim 1s infinite;
+}
+
+@keyframes happyAnim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.neutral-emoticon::before {
+    content: '😐';
+    font-size: 3rem;
+    animation: neutralAnim 1s infinite;
+}
+
+@keyframes neutralAnim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.sad-emoticon::before {
+    content: '😢';
+    font-size: 3rem;
+    animation: sadAnim 1s infinite;
+}
+
+@keyframes sadAnim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+.app-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #AF8260;
+}
+
+.footer {
+    background-color: #E4C59E;
+    color: #322C2B;
+    padding: 1rem 0;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.love-icon {
+    color: #AF8260;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.close-icon {
+    font-size: 1.5rem;
+    color: #803D3B;
+    cursor: pointer;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .text-lg {
+        font-size: 1rem;
+    }
+    .app-name {
+        font-size: 2rem;
+    }
+    #popupContent {
+        width: 90%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
