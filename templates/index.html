@@ -7,13 +7,6 @@
     <title>StressLess.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <style>
-        .close-icon {
-            font-size: 1.5rem;
-            color: #803D3B;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body class="bg-quaternary no-scroll">
@@ -67,25 +60,25 @@
 
         function startInput() {
             const steps = [
-                { label: 'Berapa tingkat harga diri Anda?', name: 'self_esteem', min: 0, max: 30 },
-                { label: 'Apakah Anda memiliki riwayat masalah kesehatan mental?', name: 'mental_health_history', min: 0, max: 1 },
-                { label: 'Seberapa sering Anda merasa tertekan?', name: 'depression', min: 0, max: 30 },
-                { label: 'Seberapa sering Anda mengalami sakit kepala?', name: 'headache', min: 0, max: 10 },
-                { label: 'Seberapa tinggi tekanan darah Anda?', name: 'blood_pressure', min: 0, max: 10 },
-                { label: 'Bagaimana kualitas tidur Anda?', name: 'sleep_quality', min: 0, max: 10 },
-                { label: 'Apakah Anda mengalami masalah pernapasan?', name: 'breathing_problem', min: 0, max: 10 },
-                { label: 'Seberapa sering Anda terganggu oleh kebisingan?', name: 'noise_level', min: 0, max: 10 },
-                { label: 'Bagaimana kondisi tempat tinggal Anda?', name: 'living_conditions', min: 0, max: 10 },
-                { label: 'Seberapa aman lingkungan Anda?', name: 'safety', min: 0, max: 10 },
-                { label: 'Seberapa terpenuhi kebutuhan dasar Anda?', name: 'basic_needs', min: 0, max: 10 },
-                { label: 'Bagaimana performa akademik Anda?', name: 'academic_performance', min: 0, max: 10 },
-                { label: 'Seberapa besar beban studi Anda?', name: 'study_load', min: 0, max: 10 },
-                { label: 'Bagaimana hubungan Anda dengan guru?', name: 'teacher_student_relationship', min: 0, max: 10 },
-                { label: 'Seberapa khawatir Anda tentang karir masa depan Anda?', name: 'future_career_concerns', min: 0, max: 10 },
-                { label: 'Seberapa banyak dukungan sosial yang Anda miliki?', name: 'social_support', min: 0, max: 10 },
-                { label: 'Seberapa besar tekanan dari teman sebaya Anda?', name: 'peer_pressure', min: 0, max: 10 },
-                { label: 'Seberapa sering Anda terlibat dalam kegiatan ekstrakurikuler?', name: 'extracurricular_activities', min: 0, max: 10 },
-                { label: 'Seberapa sering Anda mengalami bullying?', name: 'bullying', min: 0, max: 10 }
+                { label: 'Berapa tingkat harga diri Anda?', description: 'Tingkat keyakinan dan penghargaan diri Anda.', name: 'self_esteem', min: 0, max: 30 },
+                { label: 'Apakah Anda memiliki riwayat masalah kesehatan mental?', description: 'Riwayat masalah kesehatan mental yang pernah Anda alami.', name: 'mental_health_history', min: 0, max: 1 },
+                { label: 'Seberapa sering Anda merasa tertekan?', description: 'Frekuensi Anda mengalami tekanan atau stres.', name: 'depression', min: 0, max: 30 },
+                { label: 'Seberapa sering Anda mengalami sakit kepala?', description: 'Frekuensi Anda mengalami sakit kepala.', name: 'headache', min: 0, max: 10 },
+                { label: 'Seberapa tinggi tekanan darah Anda?', description: 'Tingkat tekanan darah Anda.', name: 'blood_pressure', min: 0, max: 10 },
+                { label: 'Bagaimana kualitas tidur Anda?', description: 'Seberapa baik dan nyenyak kualitas tidur Anda.', name: 'sleep_quality', min: 0, max: 10 },
+                { label: 'Apakah Anda mengalami masalah pernapasan?', description: 'Frekuensi Anda mengalami kesulitan bernapas.', name: 'breathing_problem', min: 0, max: 10 },
+                { label: 'Seberapa sering Anda terganggu oleh kebisingan?', description: 'Seberapa sering kebisingan mengganggu Anda.', name: 'noise_level', min: 0, max: 10 },
+                { label: 'Bagaimana kondisi tempat tinggal Anda?', description: 'Kondisi lingkungan tempat tinggal Anda.', name: 'living_conditions', min: 0, max: 10 },
+                { label: 'Seberapa aman lingkungan Anda?', description: 'Tingkat keamanan lingkungan tempat tinggal Anda.', name: 'safety', min: 0, max: 10 },
+                { label: 'Seberapa terpenuhi kebutuhan dasar Anda?', description: 'Tingkat pemenuhan kebutuhan dasar seperti makanan dan tempat tinggal.', name: 'basic_needs', min: 0, max: 10 },
+                { label: 'Bagaimana performa akademik Anda?', description: 'Tingkat keberhasilan akademik atau studi Anda.', name: 'academic_performance', min: 0, max: 10 },
+                { label: 'Seberapa besar beban studi Anda?', description: 'Tingkat beban dan tuntutan studi Anda.', name: 'study_load', min: 0, max: 10 },
+                { label: 'Bagaimana hubungan Anda dengan guru?', description: 'Kualitas hubungan Anda dengan guru atau pengajar.', name: 'teacher_student_relationship', min: 0, max: 10 },
+                { label: 'Seberapa khawatir Anda tentang karir masa depan Anda?', description: 'Tingkat kekhawatiran Anda terhadap karir di masa depan.', name: 'future_career_concerns', min: 0, max: 10 },
+                { label: 'Seberapa banyak dukungan sosial yang Anda miliki?', description: 'Tingkat dukungan sosial yang Anda dapatkan dari keluarga dan teman.', name: 'social_support', min: 0, max: 10 },
+                { label: 'Seberapa besar tekanan dari teman sebaya Anda?', description: 'Tingkat tekanan yang Anda rasakan dari teman sebaya.', name: 'peer_pressure', min: 0, max: 10 },
+                { label: 'Seberapa sering Anda terlibat dalam kegiatan ekstrakurikuler?', description: 'Frekuensi partisipasi Anda dalam kegiatan di luar akademik.', name: 'extracurricular_activities', min: 0, max: 10 },
+                { label: 'Seberapa sering Anda mengalami bullying?', description: 'Frekuensi Anda mengalami tindakan bullying.', name: 'bullying', min: 0, max: 10 }
             ];
 
             let currentStep = 0;
@@ -96,7 +89,9 @@
                 const savedValue = formData[step.name] !== undefined ? formData[step.name] : step.min;
                 transitionContent(`
                     <span class="close-icon absolute top-2 right-2" id="closePopupStep">&times;</span>
-                    <h2 class="text-xl mb-4 text-quaternary">${step.label} (${step.min} - ${step.max})</h2>
+                    <h2 class="text-xl mb-2 text-quaternary">${step.label} (${step.min} - ${step.max})</h2>
+                    <hr class="mb-2 border-gray-300">
+                    <p class="text-xs text-gray-500 italic mb-4">${step.description}</p>
                     <div class="flex items-center mb-4">
                         <input type="range" id="input_${step.name}" min="${step.min}" max="${step.max}" value="${savedValue}" class="w-full" oninput="this.nextElementSibling.value = this.value + '%'">
                         <output class="text-quaternary ml-2">${savedValue}%</output>
@@ -138,16 +133,18 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     const response = JSON.parse(xhr.responseText);
-                    const level_stress = response.level_stress;
-                    const reactionAnimation = getReactionAnimation(level_stress);
+                    const level_stress = response.prediction_text;
+                    const saran = response.saran;
+                    const emoticon = response.emoticon;
+
                     transitionContent(`
-                        <div class="bg-primary p-6 rounded shadow-md text-center">
-                            <div class="${reactionAnimation} w-16 h-16 mx-auto mb-4"></div>
-                            <p class="text-quaternary mb-4 font-semibold">${response.prediction_text}</p>
-                            <p class="text-quaternary mb-4">${response.saran}</p>
-                            <button id="closeBtn" class="bg-secondary text-quaternary px-4 py-2 rounded mx-auto">Close</button>
-                        </div>
-                    `, function () {
+                    <div class="bg-primary p-6 rounded shadow-md text-center">
+                        <div class="text-4xl mb-4">${emoticon}</div>
+                        <p class="text-quaternary mb-4 font-semibold">${level_stress}</p>
+                        <p class="text-quaternary mb-4">${saran}</p>
+                        <button id="closeBtn" class="bg-secondary text-quaternary px-4 py-2 rounded mx-auto">Close</button>
+                    </div>
+                `, function () {
                         document.getElementById('closeBtn').addEventListener('click', function () {
                             document.getElementById('popup').classList.add('hidden');
                         });

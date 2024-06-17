@@ -21,7 +21,6 @@ else:
 def home():
     return render_template('index.html')
 
-# Route untuk prediksi
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
@@ -41,7 +40,15 @@ def predict():
     prediction = model.predict(final_features)
     stress_level_label = ['Ringan', 'Sedang', 'Berat']
     output = stress_level_label[prediction[0]]
-    
+
+    # Menentukan emoticon berdasarkan tingkat stres
+    emoticons = {
+        'Ringan': '😄',
+        'Sedang': '😐',
+        'Berat': '😢'
+    }
+    emoticon = emoticons[output]
+
     # Saran berdasarkan tingkat stres
     saran = {
         'Ringan': 'Lakukan aktivitas yang menyenangkan dan pastikan istirahat yang cukup.',
@@ -51,10 +58,12 @@ def predict():
     
     response = {
         'prediction_text': f'Prediksi Tingkat Stres Anda: {output}',
-        'saran': saran[output]
+        'saran': saran[output],
+        'emoticon': emoticon
     }
     
     return jsonify(response)
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
