@@ -18,7 +18,7 @@
             <button id="startBtn" class="bg-secondary text-quaternary px-4 py-2 rounded">Mulai</button>
         </div>
         <footer class="footer bg-primary text-center py-4">
-            <p class="text-quaternary">Made with <span class="love-icon" role="img" aria-label="love">❤️</span> by
+            <p class="text-quaternary">Made with <span class="love-icon" role="img" aria-label="love">❤️</span> By
                 rizkyjackbar</p>
         </footer>
     </div>
@@ -29,7 +29,7 @@
             <div id="step1" class="step">
                 <h2 class="text-xl mb-4 text-quaternary">Masukkan Nama Anda</h2>
                 <input type="text" id="username" class="border border-tertiary p-2 w-full mb-4">
-                <button id="nextToStep2" class="bg-next text-quaternary px-4 py-2 rounded">Next</button>
+                <button id="nextToStep2" class="bg-next text-quaternary px-4 py-2 rounded">Lanjut</button>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                 transitionContent(`
                     <span class="close-icon absolute top-2 right-2" id="closePopupStep">&times;</span>
                     <h2 class="text-xl mb-4 text-quaternary">Selamat datang, ${username}!</h2>
-                    <button id="startInput" class="bg-next text-quaternary px-4 py-2 rounded">Next</button>
+                    <button id="startInput" class="bg-next text-quaternary px-4 py-2 rounded">Lanjut</button>
                 `, function () {
                     document.getElementById('startInput').addEventListener('click', startInput);
                     document.getElementById('closePopupStep').addEventListener('click', function () {
@@ -97,8 +97,8 @@
                         <output class="text-quaternary ml-2">${savedValue}%</output>
                     </div>
                     <div class="flex justify-between">
-                        ${currentStep > 0 ? '<button id="backBtn" class="bg-back text-quaternary px-4 py-2 rounded">Back</button>' : ''}
-                        <button id="nextBtn" class="bg-next text-quaternary px-4 py-2 rounded">${currentStep < steps.length - 1 ? 'Next' : 'Submit'}</button>
+                        ${currentStep > 0 ? '<button id="backBtn" class="bg-back text-quaternary px-4 py-2 rounded">Kembali</button>' : ''}
+                        <button id="nextBtn" class="bg-next text-quaternary px-4 py-2 rounded">${currentStep < steps.length - 1 ? 'Lanjut' : 'Prediksi'}</button>
                     </div>
                 `, function () {
                     if (currentStep > 0) {
