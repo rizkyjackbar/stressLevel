@@ -99,7 +99,7 @@
                     </div>
                     <div class="flex justify-between">
                         ${currentStep > 0 ? '<button id="backBtn" class="bg-back text-quaternary px-4 py-2 rounded">Kembali</button>' : ''}
-                        <button id="nextBtn" class="bg-next text-quaternary px-4 py-2 rounded">${currentStep < steps.length - 1 ? 'Lanjut' : 'Prediksi'}</button>
+                        <button id="nextBtn" class="bg-next text-quaternary px-4 py-2 rounded">${currentStep < steps.length - 1 ? 'Lanjut' : 'Submit'}</button>
                     </div>
                 `, function () {
                     if (currentStep > 0) {
@@ -143,7 +143,7 @@
                         <div class="text-4xl mb-4">${emoticon}</div>
                         <p class="text-quaternary mb-4 font-semibold">${level_stress}</p>
                         <p class="text-quaternary mb-4">${saran}</p>
-                        <button id="closeBtn" class="bg-secondary text-quaternary px-4 py-2 rounded mx-auto">Close</button>
+                        <button id="closeBtn" class="bg-secondary text-quaternary px-4 py-2 rounded mx-auto">Tutup</button>
                     </div>
                 `, function () {
                         document.getElementById('closeBtn').addEventListener('click', function () {
