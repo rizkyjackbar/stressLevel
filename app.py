@@ -2,23 +2,19 @@ from flask import Flask, request, render_template, jsonify
 import tensorflow as tf
 import numpy as np
 import os
-import joblib  # Untuk memuat scaler
-from sklearn.preprocessing import StandardScaler
 
 # Inisialisasi aplikasi Flask
 app = Flask(__name__)
 
-# Path model dan scaler
-model_path = 'model/stress_level_model_v2.h5'  # Ganti dengan path model .h5
-scaler_path = 'model/scaler.pkl'
+# Path model
+model_path = 'model/stress_level_model.h5'  # Ganti dengan path model .h5 yang baru
 
-# Memuat model TensorFlow dan scaler
-if os.path.exists(model_path) and os.path.exists(scaler_path):
+# Memuat model TensorFlow
+if os.path.exists(model_path):
     model = tf.keras.models.load_model(model_path)  # Muat model TensorFlow
-    scaler = joblib.load(scaler_path)  # Memuat scaler
-    print("Model dan scaler berhasil dimuat.")
+    print("Model berhasil dimuat.")
 else:
-    raise FileNotFoundError("Model atau scaler tidak ditemukan. Pastikan path sudah benar.")
+    raise FileNotFoundError("Model tidak ditemukan. Pastikan path sudah benar.")
 
 # Halaman utama
 @app.route('/')
@@ -41,11 +37,8 @@ def predict():
         ]
     ]
     
-    # Menambahkan nilai default untuk anxiety_level
-    features.insert(0, 0)  # Nilai default untuk anxiety_level adalah 0
-    
-    # Melakukan scaling input data sesuai dengan scaler yang sudah dilatih
-    final_features = scaler.transform([features])
+    # Mengubah input data menjadi numpy array dan reshape
+    final_features = np.array([features])
     
     # Melakukan prediksi dengan model TensorFlow
     prediction = model.predict(final_features)
@@ -69,7 +62,7 @@ def predict():
     saran = {
         'Ringan': 'Lakukan aktivitas yang menyenangkan dan pastikan istirahat yang cukup ya. Hal kecil ini bisa bikin kamu merasa lebih segar dan siap menghadapi aktivitas lagi.',
         'Sedang': 'Stresnya lumayan nih. Cobalah teknik relaksasi seperti meditasi atau yoga, dan bicaralah dengan teman atau keluarga.',
-        'Berat': 'Kondisinya kelihatan cukup berat. Pertimbangkan untuk berkonsultasi dengan profesional kesehatan mental untuk mendapatkan bantuan lebih lanjut.  Ingat, nggak apa-apa untuk minta bantuan. Kamu punya hak untuk merasa lebih baik.'
+        'Berat': 'Kondisinya kelihatan cukup berat. Pertimbangkan untuk berkonsultasi dengan profesional kesehatan mental untuk mendapatkan bantuan lebih lanjut. Ingat, nggak apa-apa untuk minta bantuan. Kamu punya hak untuk merasa lebih baik.'
     }
     
     # Mempersiapkan response dalam format JSON
