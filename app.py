@@ -67,9 +67,9 @@ def predict():
 
     # Saran berdasarkan tingkat stres
     saran = {
-        'Ringan': 'Lakukan aktivitas yang menyenangkan dan pastikan istirahat yang cukup.',
-        'Sedang': 'Cobalah teknik relaksasi seperti meditasi atau yoga, dan bicaralah dengan teman atau keluarga.',
-        'Berat': 'Pertimbangkan untuk berkonsultasi dengan profesional kesehatan mental untuk mendapatkan bantuan lebih lanjut.'
+        'Ringan': 'Kamu cuma perlu istirahat sebentar. Coba santai sejenak, dengar musik favorit, atau jalan-jalan kecil. Kalau ada waktu, kamu juga bisa lakukan hobi yang bikin kamu happy, seperti baca buku, nonton film lucu atau berkumpul sama teman. Jangan lupa minum cukup air dan makan makanan yang sehat ya. Hal kecil ini bisa bikin kamu merasa lebih segar dan siap menghadapi aktivitas lagi.',
+        'Sedang': 'Stresnya lumayan nih. Coba deh meditasi, olahraga ringan, atau tarik napas dalam-dalam buat relaksasi. Ngobrol sama teman dekat atau keluarga juga bisa bantu kamu merasa lebih lega. Kalau ada waktu, coba keluar rumah dan nikmati udara segar, mungkin sambil jalan-jalan santai. Ingat, nggak apa-apa untuk berhenti sejenak dan fokus sama diri sendiri. Kamu nggak sendirian, dan ada banyak cara buat merasa lebih baik.',
+        'Berat': 'Kondisinya kelihatan cukup berat. Jangan ragu buat cari bantuan profesional seperti konselor, psikolog, atau terapis. Mereka bisa bantu kamu memahami apa yang kamu rasakan dan memberikan solusi yang tepat. Selain itu, coba ngobrol sama orang yang kamu percaya, seperti keluarga atau sahabat, supaya kamu nggak merasa sendirian. Lakukan hal-hal kecil yang bikin nyaman, seperti dengar musik yang menenangkan atau menulis di jurnal tentang apa yang kamu rasakan. Ingat, nggak apa-apa untuk minta bantuan. Kamu punya hak untuk merasa lebih baik.'
     }
     
     # Mempersiapkan response dalam format JSON
